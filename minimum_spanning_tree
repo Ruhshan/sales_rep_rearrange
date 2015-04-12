@@ -1,0 +1,45 @@
+//Kruskal Algorithm
+#define inf 999
+#include<stdio.h>
+
+int W[][5]={
+    {0,3,1,inf,4},
+    {3,0,4,2,inf},
+    {1,4,0,2,3},
+    {inf,2,2,0,5},
+    {4,inf,3,5,0}};
+int V=5,E=8;
+int edge[][3]={{0,1,3},{0,2,1},{0,4,4},
+                {1,2,4},{1,3,2},
+                {2,3,2},{2,4,3},
+                {3,4,5}
+                };
+
+int main(){
+
+    SortEdge();
+
+
+    return 0;
+}
+
+int SortEdge(){
+    int t[3];
+    int i,j;
+    for(i=0;i<E-1;i++)
+        for(j=i+1;j<E;j++){
+                if(edge[i][2]>edge[j][2]){
+                    t[0]=edge[i][0];
+                    t[1]=edge[i][1];
+                    t[2]=edge[i][2];
+                    edge[i][0]=edge[j][0];
+                    edge[i][1]=edge[j][1];
+                    edge[i][2]=edge[j][2];
+                    edge[j][0]=t[0];
+                    edge[j][1]=t[1];
+                    edge[j][2]=t[2];
+                }
+
+    }
+
+}
