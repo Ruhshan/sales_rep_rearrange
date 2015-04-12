@@ -14,14 +14,39 @@ int edge[][3]={{0,1,3},{0,2,1},{0,4,4},
                 {2,3,2},{2,4,3},
                 {3,4,5}
                 };
-
+int tree_code[]={0,1,2,3,4};
 int main(){
 
     SortEdge();
+    int u,v;
+    int set_edge[]={0,0,0,0,0,0,0,0};
+    int low_edge=0;
+    for(low_edge=0;low_edge<E;low_edge++){
+        ///PICK UP an EDGE
+        u=edge[low_edge][0];
+        v=edge[low_edge][1];
+        ///check for their set code
+        if(tree_code[u]!=tree_code[v]){
+            set_edge[low_edge]=1;
+            replacetreeCode(tree_code[u],tree_code[v]);
+
+    }
+
+}
 
 
     return 0;
 }
+
+int replacetreeCode(int from,int to){
+    int i;
+    for(i=0;i<V;i++)
+        if(tree_code[i]==to)
+            tree_code[i]=from;
+    return 0;
+}
+
+
 
 int SortEdge(){
     int t[3];
